@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { colors } from '../global/colors';
 
 const AddProducts = ({ onAdd }) => {
     const [newItemName, setNewItemName] = useState('');
@@ -45,13 +46,13 @@ const styles = StyleSheet.create({
     input: {
         flex: 1,
         height: 40,
-        borderColor: 'gray',
+        borderColor: colors.color_two,
         borderWidth: 1,
         marginRight: 10,
         paddingLeft: 5,
     },
     addButton: {
-        backgroundColor: 'lightblue',
+        backgroundColor: colors.color_one,
         padding: 10,
         borderRadius: 5,
     },

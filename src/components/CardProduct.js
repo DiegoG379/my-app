@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { colors } from '../global/colors';
 
 const CardProduct = ({ item, onDelete }) => (
     <View style={styles.listItem}>
@@ -17,10 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    borderBottomColor: colors.color_two,
     },
     deleteButton: {
-    color: 'red',
+    color: colors.color_three,
     marginLeft: 10,
     fontWeight: 'bold',
     },

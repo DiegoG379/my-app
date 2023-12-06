@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { StyleSheet, SafeAreaView, StatusBar, FlatList, Text } from 'react-native';
+import { colors } from '../global/colors';
 import CardProduct from '../components/CardProduct';
 import AddProducts from '../components/AddProducts';
 import DeleteProducts from '../components/DeleteProducts';
 import TotalExpense from '../components/TotalExpense';
+
 
 const ProductListScreen = () => {
     const [data, setData] = useState([]);
@@ -35,7 +37,7 @@ return (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: colors.color_six,
         marginTop: 45,
     },
     title: {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { colors } from '../global/colors';
 
 const TotalExpense = ({ products }) => {
 
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         borderTopWidth: 1,
-        borderTopColor: 'gray',
+        borderTopColor: colors.color_two,
     },
     totalText: {
         fontSize: 18,
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         },
     redText: {
-        color: 'red',
+        color: colors.color_three,
         },
 });
 
