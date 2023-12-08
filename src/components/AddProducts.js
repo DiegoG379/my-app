@@ -40,19 +40,20 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginTop: 30,
         marginBottom: 10,
         padding: 10,
     },
     input: {
         flex: 1,
         height: 40,
-        borderColor: colors.color_two,
+        borderColor: colors.colorTwo,
         borderWidth: 1,
         marginRight: 10,
         paddingLeft: 5,
     },
     addButton: {
-        backgroundColor: colors.color_one,
+        backgroundColor: colors.colorOne,
         padding: 10,
         borderRadius: 5,
     },

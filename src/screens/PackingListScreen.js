@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, TextInput, TouchableOpacity, Text, FlatList, View, StyleSheet, StatusBar } from 'react-native';
 import { colors } from '../global/colors';
+import Header from '../components/Header';
 import PackingListItem from '../components/PackingListItem';
 import DeleteProducts from '../components/DeleteProducts';
 
@@ -37,16 +38,16 @@ const PackingListScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>Lista de Tareas</Text>
+      <Header title="Lista de Tareas"/>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Añadir elemento" value={newItemName} onChangeText={(text) => setNewItemName(text)}/>
         <TouchableOpacity style={styles.addButton} onPress={handleAddItem}>
           <Text>Añadir</Text>
         </TouchableOpacity>
       </View>
-      <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.id} />
-      <DeleteProducts onDelete={() => setData([])} />
-      <StatusBar style="auto" />
+      <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.id}/>
+      <DeleteProducts onDelete={() => setData([])}/>
+      <StatusBar style="auto"/>
     </SafeAreaView>
   );
 }
@@ -54,29 +55,25 @@ const PackingListScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.color_six,
-    marginTop: 20,
-    padding: 10,
-  },
-  title: {
-    fontSize: 38,
-    textAlign: 'center',
+    backgroundColor: colors.colorSix,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 30,
     marginBottom: 10,
+    padding: 10
   },
   input: {
     flex: 1,
     height: 40,
-    borderColor: colors.color_two,
+    borderColor: colors.colorTwo,
     borderWidth: 1,
     marginRight: 10,
-    paddingLeft: 5,
+    paddingLeft: 10,
   },
   addButton: {
-    backgroundColor: colors.color_one,
+    backgroundColor: colors.colorOne,
     padding: 10,
     borderRadius: 5,
   },

@@ -18,10 +18,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: colors.color_two,
+    borderBottomColor: colors.colorTwo,
     },
     deleteButton: {
-    color: colors.color_three,
+    color: colors.colorThree,
     marginLeft: 10,
     fontWeight: 'bold',
     },

@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     container: {
         padding: 10,
         borderTopWidth: 1,
-        borderTopColor: colors.color_two,
+        borderTopColor: colors.colorTwo,
     },
     totalText: {
         fontSize: 18,
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         },
     redText: {
-        color: colors.color_three,
+        color: colors.colorThree,
         },
 });
 

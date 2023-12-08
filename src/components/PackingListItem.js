@@ -4,7 +4,7 @@ import { colors } from '../global/colors';
 
 const PackingListItem = ({ item, onToggle, onDelete }) => (
   <View style={styles.listItem}>
-    <Switch value={item.checked} onValueChange={() => onToggle(item.id)} trackColor={{ false: colors.color_two, true: colors.color_one }} thumbColor={item.checked ? colors.color_four : colors.color_six}/>
+    <Switch value={item.checked} onValueChange={() => onToggle(item.id)} trackColor={{ false: colors.colorTwo, true: colors.colorOne }} thumbColor={item.checked ? colors.colorFour : colors.colorSix}/>
     <Text style={item.checked ? styles.checkedText : styles.uncheckedText}>{item.name}</Text>
     <TouchableOpacity onPress={() => onDelete(item.id)}>
       <Text style={styles.deleteButton}>X</Text>
@@ -19,20 +19,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: colors.color_two,
+    borderBottomColor: colors.colorTwo,
   },
   deleteButton: {
-    color: colors.color_three,
+    color: colors.colorThree,
     marginLeft: 10,
     fontWeight: 'bold',
     },
     checkedText: {
-      color: colors.color_four,
+      color: colors.colorFour,
       fontWeight: 'bold',
       textTransform: 'capitalize',
     },
     uncheckedText: {
-      color: colors.color_five,
+      color: colors.colorFive,
       fontWeight: 'normal',
       textTransform: 'capitalize',
     },

@@ -10,9 +10,10 @@ const DeleteProducts = ({ onDelete }) => (
 
 const styles = StyleSheet.create({
     deleteButton: {
-    color: colors.color_three,
+    color: colors.colorThree,
     marginLeft: 10,
     marginTop: 10,
+    fontSize: 16,
     },
 });
 
