@@ -28,18 +28,17 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
   },
   backText: {
+    fontFamily: 'amaticBold',
     color: colors.colorFive,
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 25,
   },
   titleContainer: {
     padding: 12,
     alignItems: 'center',
-    fontFamily: 'amaticRegular',
   },
   title: {
-    fontSize: 45,
-    fontWeight: 'bold',
+    fontFamily: 'amaticBold',
+    fontSize: 50,
     color: colors.colorFive,
   },
   backgroundImage: {
