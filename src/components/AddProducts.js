@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { colors } from '../global/colors';
+import { fonts } from '../global/fonts';
 
 const AddProducts = ({ onAdd }) => {
     const [newItemName, setNewItemName] = useState('');
@@ -30,7 +31,7 @@ const AddProducts = ({ onAdd }) => {
             <TextInput style={styles.input} placeholder="Nombre" value={newItemName} onChangeText={(text) => setNewItemName(text)}/>
             <TextInput style={styles.input} placeholder="Precio" value={newItemPrice} onChangeText={handlePriceChange} keyboardType="numeric"/>
             <TouchableOpacity style={styles.addButton} onPress={handleAddItem}>
-                <Text>Añadir</Text>
+                <Text style={styles.addButtonText}>Añadir</Text>
             </TouchableOpacity>
         </View>
     );
@@ -40,22 +41,27 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 30,
+        marginTop: 5,
         marginBottom: 10,
         padding: 10,
     },
     input: {
         flex: 1,
         height: 40,
-        borderColor: colors.colorTwo,
+        borderColor: colors.colorFour,
         borderWidth: 1,
         marginRight: 10,
         paddingLeft: 5,
+        textAlign: 'center',
     },
     addButton: {
         backgroundColor: colors.colorOne,
         padding: 10,
         borderRadius: 5,
+    },
+    addButtonText: {
+        color: colors.colorSix,
+        fontSize: 15,
     },
 });
 

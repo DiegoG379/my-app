@@ -1,9 +1,7 @@
 import React from 'react';
 import { useFonts } from 'expo-font';
 import { fonts } from './src/global/fonts';
-import ProductListScreen from './src/screens/ProductListScreen';
-import PackingListScreen from './src/screens/PackingListScreen';
-
+import Home from './src/screens/Home';
 
 const App = () => {
   const [fontLoaded] = useFonts(fonts);
@@ -11,7 +9,7 @@ const App = () => {
 
   return (
     <>
-    <PackingListScreen/>
+      <Home/>
     </>
   );
 }

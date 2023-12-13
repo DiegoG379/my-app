@@ -1,17 +1,13 @@
 import React from 'react';
-import { SafeAreaView, StatusBar, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { SafeAreaView, StatusBar, Text, Image, StyleSheet, View } from 'react-native';
 import { colors } from '../global/colors';
-import { fonts } from '../global/fonts';
 
-const Header = ({ title, onBackPress }) => (
+const Header = ({ title }) => (
   <SafeAreaView style={styles.header}>
-    <TouchableOpacity onPress={onBackPress} style={styles.backButton}>
-      <Text style={styles.backText}>{'< Back'}</Text>
-    </TouchableOpacity>
-    <Text style={styles.titleContainer}>
+    <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>
-    </Text>
-    <Image source={require('../20190826_134605.jpg')} style={styles.backgroundImage}/>
+    </View>
+    <Image source={require('../../assets/images/headerWallpaper.jpg')} style={styles.backgroundImage} />
     <StatusBar style="auto" />
   </SafeAreaView>
 );
@@ -23,23 +19,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: 100,
   },
-  backButton: {
-    padding: 12,
-    alignSelf: 'flex-end',
-  },
-  backText: {
-    fontFamily: 'amaticBold',
-    color: colors.colorFive,
-    fontSize: 25,
-  },
   titleContainer: {
-    padding: 12,
+    flex: 1,
     alignItems: 'center',
   },
   title: {
     fontFamily: 'amaticBold',
     fontSize: 50,
-    color: colors.colorFive,
+    color: colors.colorSix,
   },
   backgroundImage: {
     flex: 1,
@@ -47,7 +34,7 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
     position: 'absolute',
-    opacity: 0.6,
+    opacity: 1,
     zIndex: -1,
   },
 });

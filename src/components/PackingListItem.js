@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: colors.colorTwo,
+    borderBottomColor: colors.colorFour,
   },
   deleteButton: {
     color: colors.colorThree,

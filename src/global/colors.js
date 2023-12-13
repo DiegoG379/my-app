@@ -1,8 +1,8 @@
 export const colors = {
-    colorOne: 'lightblue',
+    colorOne: '#69cbc2',
     colorTwo: 'gray',
     colorThree: 'red',
-    colorFour: '#4682B4',
+    colorFour: '#1e816f',
     colorFive: 'black',
     colorSix: 'white',
 } 

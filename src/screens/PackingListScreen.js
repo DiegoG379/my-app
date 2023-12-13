@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { SafeAreaView, TextInput, TouchableOpacity, Text, FlatList, View, StyleSheet, StatusBar } from 'react-native';
 import { colors } from '../global/colors';
 import Header from '../components/Header';
+import BackButton from '../components/BackButton';
 import PackingListItem from '../components/PackingListItem';
 import DeleteProducts from '../components/DeleteProducts';
 
 
-const PackingListScreen = () => {
+const PackingListScreen = ({ onBackPress }) => {
   const [data, setData] = useState([]);
   const [newItemName, setNewItemName] = useState('');
 
@@ -39,14 +40,15 @@ const PackingListScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <Header title="Lista de Tareas"/>
+      <BackButton onPress={onBackPress}/>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Añadir elemento" value={newItemName} onChangeText={(text) => setNewItemName(text)}/>
         <TouchableOpacity style={styles.addButton} onPress={handleAddItem}>
-          <Text>Añadir</Text>
+          <Text style={styles.addButtonText}>Añadir</Text>
         </TouchableOpacity>
       </View>
       <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.id}/>
-      <DeleteProducts onDelete={() => setData([])}/>
+      <DeleteProducts onDelete={() => setData([])} confirmationQuestion="¿Estás seguro que quieres eliminar todos los elementos de la lista de tareas?"/>
       <StatusBar style="auto"/>
     </SafeAreaView>
   );
@@ -60,14 +62,14 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 30,
+    marginTop: 5,
     marginBottom: 10,
     padding: 10
   },
   input: {
     flex: 1,
     height: 40,
-    borderColor: colors.colorTwo,
+    borderColor: colors.colorFour,
     borderWidth: 1,
     marginRight: 10,
     paddingLeft: 10,
@@ -76,6 +78,10 @@ const styles = StyleSheet.create({
     backgroundColor: colors.colorOne,
     padding: 10,
     borderRadius: 5,
+  },
+  addButtonText:{
+    color: colors.colorSix,
+    fontSize: 15,
   },
 });
 
