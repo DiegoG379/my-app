@@ -6,7 +6,6 @@ import BackButton from '../components/BackButton';
 import PackingListItem from '../components/PackingListItem';
 import DeleteProducts from '../components/DeleteProducts';
 
-
 const PackingListScreen = ({ onBackPress }) => {
   const [data, setData] = useState([]);
   const [newItemName, setNewItemName] = useState('');
