@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import BackButton from '../components/BackButton';
 
-const EditTravelInfo = ({ onNameChange, onPhotoChange, onDelete, onSaveChanges }) => {
+const EditTravelInfoScreen = ({ navigation, onNameChange, onPhotoChange, onDelete, onSaveChanges }) => {
     const [newName, setNewName] = useState('');
 
     const handleNameChange = (text) => {
@@ -15,14 +15,18 @@ const EditTravelInfo = ({ onNameChange, onPhotoChange, onDelete, onSaveChanges }
         // Puedes usar bibliotecas como react-native-image-picker o react-native-camera
     };
 
+    const handleGoBack = () => {
+        navigation.goBack();
+    };
+
     return (
         <SafeAreaView style={styles.container}>
-            <StatusBar/>
+            <BackButton onPress={handleGoBack}/>
             <View style={styles.content}>
                 <TouchableOpacity style={styles.photoBox} onPress={handlePhotoChange}>
                     <Text style={styles.label}>Agregar Foto del Viaje</Text>
                     <View style={styles.cameraIconContainer}>
-                        <Icon name="camera" size={30} color="#4CAF50" />
+                        <Icon name="camera" size={30} color="#4CAF50"/>
                     </View>
                 </TouchableOpacity>
                 <Text style={styles.label}>Cambiar Nombre del Viaje</Text>
@@ -97,4 +101,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default EditTravelInfo;
+export default EditTravelInfoScreen;

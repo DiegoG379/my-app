@@ -19,20 +19,22 @@ const DeleteProducts = ({ onDelete, confirmationQuestion }) => {
     );
     };
 
-    const styles = StyleSheet.create({
-        deleteButton: {
-            height: 45,
-            width: 150,
-            textAlign: 'center',
-            color: colors.colorSix,
-            marginLeft: 10,
-            marginTop: 15,
-            marginBottom: 15,
-            fontSize: 18,
-            backgroundColor: colors.colorThree,
-            padding: 10,
-            borderRadius: 5,
-        },
+const styles = StyleSheet.create({
+    deleteButton: {
+        height: 45,
+        width: 150,
+        textAlign: 'center',
+        color: colors.colorSix,
+        marginLeft: 10,
+        marginTop: 15,
+        marginBottom: 15,
+        fontSize: 18,
+        backgroundColor: colors.colorThree,
+        padding: 10,
+        borderRadius: 5,
+        fontFamily: 'amaticBold',
+        letterSpacing: 1,
+    },
 });
 
 export default DeleteProducts;

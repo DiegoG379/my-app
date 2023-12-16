@@ -4,7 +4,7 @@ import { colors } from '../global/colors';
 
 const TravelBox = ({ item, navigation }) => (
   <TouchableOpacity key={item.id} style={styles.box} onPress={() => handleNavigateToIndividualTravel(item, navigation)}>
-    <Text>{item.contenido}</Text>
+    <Text style={styles.travelText}>{item.contenido}</Text>
   </TouchableOpacity>
 );
 
@@ -16,13 +16,24 @@ const styles = StyleSheet.create({
   box: {
     flex: 1,
     aspectRatio: 1,
-    borderWidth: 1,
-    borderColor: colors.colorFive,
+    borderWidth: 2,
+    borderColor: colors.colorFour,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    marginTop: 2,
+    marginBottom: 20,
     borderRadius: 10,
     backgroundColor: colors.colorSix,
+  },
+  travelText: {
+    fontSize: 22,
+    textAlign: 'center',
+    position: 'absolute',
+    bottom: -25,
+    width: '100%',
+    fontFamily: 'amaticBold',
+    letterSpacing: 1,
+    color: colors.colorFive,
   },
 });
 

@@ -36,14 +36,14 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Header title="Nombre de la app"/>
+      <Header title='Bitácora de viajes'/>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.addButton} onPress={handleNewProject}>
           <Text style={styles.plusSign}>Nuevo Viaje</Text>
         </TouchableOpacity>
-        <DeleteProducts onDelete={handleReset} confirmationQuestion="¿Estás seguro de que deseas eliminar todos tus viajes?" />
+        <DeleteProducts onDelete={handleReset} confirmationQuestion="¿Estás seguro de que deseas eliminar todos tus viajes?"/>
       </View>
-      <FlatList data={cuadros} renderItem={renderItem} keyExtractor={(item) => item.id.toString()} numColumns={2} contentContainerStyle={styles.flatListContainer} />
+      <FlatList data={cuadros} renderItem={renderItem} keyExtractor={(item) => item.id.toString()} numColumns={2} contentContainerStyle={styles.flatListContainer}/>
     </SafeAreaView>
   );
 };
@@ -62,13 +62,14 @@ const styles = StyleSheet.create({
     width: 150,
     marginTop: 15,
     backgroundColor: colors.colorOne,
-    padding: 10,
+    padding: 7,
     borderRadius: 5,
   },
   plusSign: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 20,
     textAlign: 'center',
+    fontFamily: 'amaticBold',
+    letterSpacing: 1.5,
   },
   flatListContainer: {
     paddingVertical: 10,
@@ -76,13 +77,14 @@ const styles = StyleSheet.create({
   box: {
     flex: 1,
     aspectRatio: 1,
-    borderWidth: 1,
-    borderColor: colors.colorFive,
+    borderWidth: 2,
+    borderColor: colors.colorFour,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    margin: 7,
+    padding: -5,
     borderRadius: 10,
-    backgroundColor: colors.colorSix,
+    backgroundColor: colors.colorOne,
   },
 });
 

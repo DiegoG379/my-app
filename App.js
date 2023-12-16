@@ -5,8 +5,8 @@ import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { fonts } from './src/global/fonts';
 import HomeScreen from './src/screens/HomeScreen';
-import EditTravelInfo from './src/components/EditTravelInfo';
 import IndividualTravelScreen from './src/screens/IndividualTravelScreen';
+import EditTravelInfoScreen from './src/screens/EditTravelInfoScreen';
 
 const Stack = createStackNavigator();
 
@@ -18,9 +18,9 @@ const App = () => {
     <NavigationContainer>
       <StatusBar />
       <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="EditTravelInfo" component={EditTravelInfo} />
-        <Stack.Screen name="IndividualTravel" component={IndividualTravelScreen} />
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="IndividualTravel" component={IndividualTravelScreen}/>
+        <Stack.Screen name="EditTravelInfoScreen" component={EditTravelInfoScreen}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
