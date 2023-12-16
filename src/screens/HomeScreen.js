@@ -10,29 +10,32 @@ import DeleteProducts from '../components/DeleteProducts';
 const HomeScreen = () => {
   const navigation = useNavigation();
   const [cuadros, setCuadros] = React.useState([]);
+  const [ultimoId, setUltimoId] = React.useState(0);
 
   const handleNewProject = () => {
     const nuevoCuadro = {
-      id: cuadros.length + 1,
-      contenido: `Viaje ${cuadros.length + 1}`,
+      id: ultimoId + 1,
+      contenido: `Viaje ${ultimoId + 1}`,
+      onDelete: () => handleDeleteProject(nuevoCuadro.id),
     };
 
+    setUltimoId(ultimoId + 1);
     setCuadros([...cuadros, nuevoCuadro]);
   };
 
   const handleReset = () => {
     setCuadros([]);
+    setUltimoId(0);
+  };
+
+  const handleDeleteProject = (projectId) => {
+    const updatedCuadros = cuadros.filter((cuadro) => cuadro.id !== projectId);
+    setCuadros(updatedCuadros);
   };
 
   const handleNavigateToIndividualTravel = (item) => {
-    navigation.navigate('IndividualTravel', { travel: item });
+    navigation.navigate('IndividualTravel', { travel: item, setCuadros, cuadros });
   };
-
-  const renderItem = ({ item, index }) => (
-    <TouchableOpacity key={item.id} style={styles.box} onPress={() => handleNavigateToIndividualTravel(item)}>
-      <TravelBox item={item} index={index} navigation={navigation} />
-    </TouchableOpacity>
-  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -43,8 +46,18 @@ const HomeScreen = () => {
         </TouchableOpacity>
         <DeleteProducts onDelete={handleReset} confirmationQuestion="¿Estás seguro de que deseas eliminar todos tus viajes?"/>
       </View>
-      <FlatList data={cuadros} renderItem={renderItem} keyExtractor={(item) => item.id.toString()} numColumns={2} contentContainerStyle={styles.flatListContainer}/>
-    </SafeAreaView>
+      <FlatList
+  data={cuadros}
+  renderItem={({ item, index }) => (
+    <TouchableOpacity key={item.id} style={styles.box} onPress={() => handleNavigateToIndividualTravel(item)}>
+      <TravelBox item={item} index={index} navigation={navigation} onDelete={item.onDelete} setCuadros={setCuadros} cuadros={cuadros} />
+    </TouchableOpacity>
+  )}
+  keyExtractor={(item) => item.id.toString()}
+  numColumns={2}
+  contentContainerStyle={styles.flatListContainer}
+/>
+      </SafeAreaView>
   );
 };
 

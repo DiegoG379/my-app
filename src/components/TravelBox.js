@@ -2,14 +2,14 @@ import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'; 
 import { colors } from '../global/colors';
 
-const TravelBox = ({ item, navigation }) => (
-  <TouchableOpacity key={item.id} style={styles.box} onPress={() => handleNavigateToIndividualTravel(item, navigation)}>
+const TravelBox = ({ item, navigation, setCuadros, cuadros }) => (
+  <TouchableOpacity key={item.id} style={styles.box} onPress={() => handleNavigateToIndividualTravel(item, navigation, setCuadros, cuadros)}>
     <Text style={styles.travelText}>{item.contenido}</Text>
   </TouchableOpacity>
 );
 
-const handleNavigateToIndividualTravel = (item, navigation) => {
-  navigation.navigate('IndividualTravel', { travel: item });
+const handleNavigateToIndividualTravel = (item, navigation, setCuadros, cuadros) => {
+  navigation.navigate('IndividualTravel', { travel: item, setCuadros, cuadros });
 };
 
 const styles = StyleSheet.create({

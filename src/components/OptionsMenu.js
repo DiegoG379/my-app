@@ -15,18 +15,18 @@ const OptionsMenu = ({ onEditPress, onDeletePress }) => {
         <TouchableOpacity onPress={handleToggleMenu} style={styles.optionsButton}>
             <Icon style={styles.icon} name="ellipsis-v" size={24}/>
         </TouchableOpacity>
-            {showMenu && (
-                <View style={styles.menu}>
-                <TouchableOpacity onPress={onEditPress} style={styles.menuItem}>
-                    <Icon name="edit" size={20} color={colors.colorOne}/>
-                    <Text style={styles.menuItemText}>Editar viaje</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={onDeletePress} style={styles.menuItem}>
-                    <Icon name="trash" size={20} color={colors.colorThree}/>
-                    <Text style={styles.menuItemText}>Eliminar viaje</Text>
-                </TouchableOpacity>
-                </View>
-            )}
+        {showMenu && (
+            <View style={styles.menu}>
+            <TouchableOpacity onPress={onEditPress} style={styles.menuItem}>
+                <Icon name="edit" size={20} color={colors.colorOne}/>
+                <Text style={styles.menuItemText}>Editar viaje</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={onDeletePress} style={styles.menuItem}>
+                <Icon name="trash" size={20} color={colors.colorThree}/>
+                <Text style={styles.menuItemText}>Eliminar viaje</Text>
+            </TouchableOpacity>
+            </View>
+        )}
         </View>
     );
 };
