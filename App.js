@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <StatusBar />
+      <StatusBar/>
       <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
         <Stack.Screen name="Home" component={HomeScreen}/>
         <Stack.Screen name="IndividualTravel" component={IndividualTravelScreen}/>

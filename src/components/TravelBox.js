@@ -1,26 +1,31 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native'; 
+import { useNavigation } from '@react-navigation/native';
 import { colors } from '../global/colors';
 
-const TravelBox = ({ item, navigation, setCuadros, cuadros }) => (
-  <TouchableOpacity key={item.id} style={styles.box} onPress={() => handleNavigateToIndividualTravel(item, navigation, setCuadros, cuadros)}>
-    <Text style={styles.travelText}>{item.contenido}</Text>
-  </TouchableOpacity>
-);
+const TravelBox = ({ item, setCuadros, cuadros }) => {
+  const navigation = useNavigation();
 
-const handleNavigateToIndividualTravel = (item, navigation, setCuadros, cuadros) => {
-  navigation.navigate('IndividualTravel', { travel: item, setCuadros, cuadros });
+  const handleNavigateToIndividualTravel = () => {
+    navigation.navigate('IndividualTravel', { travel: item, setCuadros, cuadros });
+  };
+
+  return (
+    <TouchableOpacity key={item.id} style={styles.box} onPress={handleNavigateToIndividualTravel}>
+      <Text style={styles.travelText}>{item.contenido}</Text>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
   box: {
     flex: 1,
     aspectRatio: 1,
-    borderWidth: 2,
+    borderWidth: 5,
     borderColor: colors.colorFour,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 2,
+    margin: 10,
     marginBottom: 20,
     borderRadius: 10,
     backgroundColor: colors.colorSix,
@@ -29,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     textAlign: 'center',
     position: 'absolute',
-    bottom: -25,
+    bottom: -28,
     width: '100%',
     fontFamily: 'amaticBold',
     letterSpacing: 1,

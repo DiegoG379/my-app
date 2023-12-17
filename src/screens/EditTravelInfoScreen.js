@@ -1,41 +1,43 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { SafeAreaView, StatusBar, View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { colors } from '../global/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import BackButton from '../components/BackButton';
 
-const EditTravelInfoScreen = ({ navigation, onNameChange, onPhotoChange, onDelete, onSaveChanges }) => {
-    const [newName, setNewName] = useState('');
+const EditTravelInfoScreen = ({ route, navigation}) => {
+    const { travel, index, onNameChange } = route.params;
+    const [newName, setNewName] = useState(travel.contenido);
 
     const handleNameChange = (text) => {
         setNewName(text);
-    };
-
-    const handlePhotoChange = () => {
-        // Agrega la lógica para seleccionar una foto aquí
-        // Puedes usar bibliotecas como react-native-image-picker o react-native-camera
     };
 
     const handleGoBack = () => {
         navigation.goBack();
     };
 
+    const handleSaveChanges = () => {
+        handleNameChange(newName);
+        if (onNameChange) {
+            onNameChange(newName, index);
+        }
+        navigation.goBack();
+    };
+
     return (
         <SafeAreaView style={styles.container}>
-            <BackButton onPress={handleGoBack}/>
+            <BackButton onPress={handleGoBack} />
             <View style={styles.content}>
-                <TouchableOpacity style={styles.photoBox} onPress={handlePhotoChange}>
-                    <Text style={styles.label}>Agregar Foto del Viaje</Text>
+                <TouchableOpacity style={styles.photoBox}>
+                    <Text style={styles.label}>Agregar foto de portada</Text>
                     <View style={styles.cameraIconContainer}>
-                        <Icon name="camera" size={30} color="#4CAF50"/>
+                        <Icon name="camera" size={35} color={colors.colorSix} />
                     </View>
                 </TouchableOpacity>
                 <Text style={styles.label}>Cambiar Nombre del Viaje</Text>
-                <TextInput style={styles.input} placeholder="Nuevo nombre del viaje" value={newName} onChangeText={handleNameChange}/>
+                <TextInput style={styles.input} placeholder="Nuevo nombre del viaje"  value={newName} onChangeText={handleNameChange}/>
                 <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={[styles.button, { backgroundColor: '#FF5722' }]} onPress={onDelete}>
-                        <Text style={styles.buttonText}>Eliminar</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={[styles.button, { backgroundColor: '#2196F3' }]} onPress={() => onSaveChanges(newName)}>
+                    <TouchableOpacity style={styles.button} onPress={handleSaveChanges}>
                         <Text style={styles.buttonText}>Confirmar Cambios</Text>
                     </TouchableOpacity>
                 </View>
@@ -46,58 +48,64 @@ const EditTravelInfoScreen = ({ navigation, onNameChange, onPhotoChange, onDelet
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: StatusBar.currentHeight,
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
     },
     content: {
         width: '95%',
     },
     label: {
-        fontSize: 18,
-        fontWeight: 'bold',
+        fontSize: 28,
         marginBottom: 10,
-        color: '#333333',
+        color: colors.colorFive,
+        textAlign: 'center',
+        fontFamily: 'amaticBold',
+        letterSpacing: 1,
     },
     input: {
         height: 40,
-        borderColor: '#666666',
-        borderWidth: 1,
+        borderColor: colors.colorFour,
+        borderWidth: 2,
         borderRadius: 5,
         marginBottom: 20,
         padding: 10,
-        color: '#333333',
+        color: colors.colorFive,
+        textAlign: 'center',
+        fontSize: 20,
     },
     photoBox: {
-        borderWidth: 2,
-        borderColor: '#666666',
         borderRadius: 10,
         padding: 15,
         alignItems: 'center',
-        backgroundColor: '#ECEFF1',
         marginBottom: 20,
     },
     cameraIconContainer: {
-        backgroundColor: '#666666',
-        borderRadius: 25,
-        padding: 10,
-        marginTop: 10,
+        backgroundColor: colors.colorFour,
+        color: colors.colorSix,
+        borderRadius: 40,
+        padding: 15,
+        marginTop: 7,
     },
     buttonContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
-    },
-    button: {
-        flex: 1,
-        borderRadius: 5,
-        padding: 10,
-        marginHorizontal: 5,
+        justifyContent: 'center',
         alignItems: 'center',
     },
+    button: {
+        height: 45,
+        width: 150,
+        marginTop: 15,
+        backgroundColor: colors.colorOne,
+        padding: 7,
+        borderRadius: 5,
+    },
     buttonText: {
-        color: '#ffffff',
-        fontSize: 16,
-        fontWeight: 'bold',
+        fontSize: 20,
+        textAlign: 'center',
+        fontFamily: 'amaticBold',
+        letterSpacing: 1.5,
+        color: colors.colorFive,
     },
 });
 
