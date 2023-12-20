@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { colors } from '../global/colors';
-import { fonts } from '../global/fonts';
 
 const AddProducts = ({ onAdd }) => {
     const [newItemName, setNewItemName] = useState('');

@@ -34,6 +34,7 @@ const OptionsMenu = ({ onEditPress, onDeletePress }) => {
 const styles = StyleSheet.create({
     container: {
         position: 'relative',
+        zIndex: 1,
     },
     optionsButton: {
         position: 'absolute',

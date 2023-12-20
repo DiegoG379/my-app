@@ -6,7 +6,7 @@ import BackButton from '../components/BackButton';
 import PackingListItem from '../components/PackingListItem';
 import DeleteProducts from '../components/DeleteProducts';
 
-const PackingListScreen = ({ onBackPress }) => {
+const PackingListScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [newItemName, setNewItemName] = useState('');
 
@@ -36,10 +36,14 @@ const PackingListScreen = ({ onBackPress }) => {
     <PackingListItem item={item} onToggle={handleToggleItem} onDelete={handleDeleteItem}/>
   );
 
+  const handleBackPress = () => {
+    navigation.goBack();
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       <Header title="Lista de Tareas"/>
-      <BackButton onPress={onBackPress}/>
+      <BackButton onPress={handleBackPress}/>
       <View style={styles.inputContainer}>
         <TextInput style={styles.input} placeholder="Añadir elemento" value={newItemName} onChangeText={(text) => setNewItemName(text)}/>
         <TouchableOpacity style={styles.addButton} onPress={handleAddItem}>
@@ -84,4 +88,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PackingListScreen
+export default PackingListScreen;

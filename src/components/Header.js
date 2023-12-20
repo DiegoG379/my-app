@@ -7,8 +7,8 @@ const Header = ({ title }) => (
     <View style={styles.titleContainer}>
       <Text style={styles.title}>{title}</Text>
     </View>
-    <Image source={require('../../assets/images/headerWallpaper.jpg')} style={styles.backgroundImage} />
-    <StatusBar style="auto" />
+    <Image source={require('../../assets/images/headerWallpaper.jpg')} style={styles.backgroundImage}/>
+    <StatusBar style="auto"/>
   </SafeAreaView>
 );
 
